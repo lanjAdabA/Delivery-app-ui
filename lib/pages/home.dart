@@ -12,42 +12,88 @@ class UserHome extends StatefulWidget {
 class _UserHomeState extends State<UserHome> {
   List<Map<String, dynamic>> data = [
     {
-      "description": "apple",
-      "quantity": 1,
-      "mrp": 280,
+      "description": "bora",
+      "quantity": "1 plate",
+      "mrp": 50,
       "img":
-          "https://st.depositphotos.com/1020804/2370/i/600/depositphotos_23706663-stock-photo-red-apple-with-leaf-and.jpg",
-      "offerprice": 230,
-      "deliveryType": "cod",
-      "expectedDelivery": "23rd june 2022"
+          "http://binotagichakhum.weebly.com/uploads/6/3/9/0/63907723/published/bora.jpeg?1495535458",
+      "offerprice": 40,
+      "deliveryType": "pre-pay only",
+      "expectedDelivery": "delivery within 1hr",
+      "vegOrNonveg": "https://openclipart.org/image/800px/304248"
     },
     {
-      "description": "green apple",
-      "quantity": 3,
-      "mrp": 260,
+      "description": "yerum bora ",
+      "quantity": "6 half pieces",
+      "mrp": 30,
+      "img": "https://i.ytimg.com/vi/1zXoVCnrVKc/maxresdefault.jpg",
+      "offerprice": 25,
+      "deliveryType": "cod available",
+      "expectedDelivery": "delivery within 1hr",
+      "vegOrNonveg": "https://openclipart.org/image/800px/304247"
+    },
+    {
+      "description": "paknam",
+      "quantity": "4 pieces",
+      "mrp": 20,
+      "img": "https://singju.com/wp-content/uploads/2020/10/lafu-tharo.jpg",
+      "offerprice": 15,
+      "deliveryType": "cod available",
+      "expectedDelivery": "delivery within half an hour",
+      "vegOrNonveg": "https://openclipart.org/image/800px/304247"
+    },
+    {
+      "description": "singju",
+      "quantity": "1 plate",
+      "mrp": 20,
       "img":
-          "https://media.istockphoto.com/photos/green-apple-with-leaf-isolated-on-white-clipping-path-included-picture-id629734762?b=1&k=20&m=629734762&s=170667a&w=0&h=-JTO_KaiODRi-5i8p54XBAxqMzfijkrUPaIjxBtRRfA=",
-      "offerprice": 240,
+          "https://qph.fs.quoracdn.net/main-qimg-229874c02cce4b98d7e7b0a3897efd3e-lq",
+      "offerprice": 15,
       "deliveryType": "cod",
-      "expectedDelivery": "23rd june 2022"
+      "expectedDelivery": "delivery within half an hour",
+      "vegOrNonveg": "https://openclipart.org/image/800px/304248"
     },
     {
-      "description": "banana",
-      "quantity": 1,
-      "mrp": 80,
-      "img": "https://www.wiffens.com/content/uploads/bananas-cavendish-1.jpeg",
-      "offerprice": 50,
-      "deliveryType": "cod",
-      "expectedDelivery": "23rd june 2022"
+      "description": "mimi singju",
+      "quantity": "1 plate",
+      "mrp": 20,
+      "img": "https://pbs.twimg.com/media/EUCpkdsXsAEFB4O.jpg",
+      "offerprice": 15,
+      "deliveryType": "cod available",
+      "expectedDelivery": "delivery within half an hour",
+      "vegOrNonveg": "https://openclipart.org/image/800px/304247"
     },
     {
-      "description": "pine apple",
-      "quantity": 4,
-      "mrp": 80,
-      "img": "https://m.media-amazon.com/images/I/71bNsWlkyeL._SL1500_.jpg",
-      "offerprice": 60,
+      "description": "kilichana",
+      "quantity": "1 plate",
+      "mrp": 20,
+      "img":
+          "http://4.bp.blogspot.com/-Igpb63Wpexc/VVW-BqY7Q0I/AAAAAAAAADY/ySruG2eImcY/s1600/DSCN0081.JPG",
+      "offerprice": 15,
       "deliveryType": "cod",
-      "expectedDelivery": "23rd june 2022"
+      "expectedDelivery": "delivery within half an hour",
+      "vegOrNonveg": "https://openclipart.org/image/800px/304248"
+    },
+    {
+      "description": "mimi singju",
+      "quantity": "1 plate",
+      "mrp": 20,
+      "img": "https://pbs.twimg.com/media/EUCpkdsXsAEFB4O.jpg",
+      "offerprice": 15,
+      "deliveryType": "cod available",
+      "expectedDelivery": "delivery within half an hour",
+      "vegOrNonveg": "https://openclipart.org/image/800px/304248"
+    },
+    {
+      "description": "kilichana",
+      "quantity": "1 plate",
+      "mrp": 20,
+      "img":
+          "http://4.bp.blogspot.com/-Igpb63Wpexc/VVW-BqY7Q0I/AAAAAAAAADY/ySruG2eImcY/s1600/DSCN0081.JPG",
+      "offerprice": 15,
+      "deliveryType": "cod",
+      "expectedDelivery": "delivery within half an hour",
+      "vegOrNonveg": "https://openclipart.org/image/800px/304248"
     },
   ];
 
@@ -69,15 +115,16 @@ class _UserHomeState extends State<UserHome> {
                   //mainAxisExtent: 400,
                   crossAxisCount: 2,
                   childAspectRatio: 3 / 4),
-              itemBuilder: (c, i) {
+              itemBuilder: (context, index) {
                 return MyCard(
-                  description: data[i]["description"],
-                  deliveryType: data[i]["deliveryType"],
-                  expectedDelivery: data[i]["expectedDelivery"],
-                  quantity: data[i]["quantity"],
-                  mrp: data[i]["mrp"],
-                  offerprice: data[i]["offerprice"],
-                  img: data[i]["img"],
+                  description: data[index]["description"],
+                  deliveryType: data[index]["deliveryType"],
+                  expectedDelivery: data[index]["expectedDelivery"],
+                  quantity: data[index]["quantity"],
+                  mrp: data[index]["mrp"],
+                  offerprice: data[index]["offerprice"],
+                  img: data[index]["img"],
+                  vegOrNonveg: data[index]["vegOrNonveg"],
                 );
               }),
 

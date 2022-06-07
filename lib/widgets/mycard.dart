@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 class MyCard extends StatefulWidget {
   final String description;
-  final int quantity;
+  final String quantity;
   final int mrp;
+  final String vegOrNonveg;
   final String img;
   final int offerprice;
   final String deliveryType;
@@ -18,7 +19,8 @@ class MyCard extends StatefulWidget {
       required this.quantity,
       required this.mrp,
       required this.offerprice,
-      required this.img})
+      required this.img,
+      required this.vegOrNonveg})
       : super(key: key);
 
   @override
@@ -41,25 +43,44 @@ class _MyCardState extends State<MyCard> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Icon(
-                      Icons.check_box_outline_blank_rounded,
-                      color: Colors.green,
+                    Stack(
+                      children: [
+                        Positioned(
+                          // bottom: 0.2,
+                          child: SizedBox(
+                              height: 26,
+                              width: 26,
+                              child: Image.network(
+                                widget.vegOrNonveg,
+                              )),
+                        ),
+                      ],
                     ),
-                    Text(widget.quantity.toString())
+                    Text(
+                      widget.quantity,
+                      style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                    )
                   ],
                 ),
                 Center(
-                  child: SizedBox(
-                    height: 130,
-                    width: 130,
-                    child: Image.network(widget.img),
+                  child: CircleAvatar(
+                    radius: 75,
+
+                    backgroundImage: NetworkImage(
+                      widget.img,
+                    ),
+                    // child: Image.network(
+                    //   widget.img,
+                    // ),
                   ),
                 ),
               ],
             ),
             Text(
               widget.description,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               maxLines: 2,
+              softWrap: true,
             ),
 
             // Text(item_name),
@@ -72,7 +93,7 @@ class _MyCardState extends State<MyCard> {
                       color: Colors.grey,
                       decoration: TextDecoration.lineThrough),
                 ),
-                Text(" " + widget.offerprice.toString() + "  RS")
+                Text(" ${widget.offerprice}  RS")
               ],
             ),
             SizedBox(
@@ -90,11 +111,24 @@ class _MyCardState extends State<MyCard> {
                     setState(() {});
                   }),
             ),
-            Text(widget.deliveryType),
-            Text(widget.expectedDelivery.toString()),
+            Text(
+              widget.deliveryType,
+            ),
+            Text(
+              widget.expectedDelivery,
+              style: const TextStyle(fontSize: 12, color: Colors.blueGrey),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+/* 
+veg
+https://openclipart.org/image/800px/304248
+
+non veg
+https://openclipart.org/image/800px/304247  
+ */

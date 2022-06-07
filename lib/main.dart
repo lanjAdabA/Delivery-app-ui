@@ -1,3 +1,4 @@
+import 'package:deliveryui/pages/cart.dart';
 import 'package:deliveryui/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -41,9 +42,7 @@ class _UserInterfaceState extends State<UserInterface> {
     const Center(
       child: Text("notification"),
     ),
-    const Center(
-      child: Text("cart"),
-    ),
+    const Center(child: PurchasedCart()),
     const Center(
       child: Text("my account"),
     ),
@@ -51,6 +50,7 @@ class _UserInterfaceState extends State<UserInterface> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(2, 203, 199, 198),
       body: _children[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
