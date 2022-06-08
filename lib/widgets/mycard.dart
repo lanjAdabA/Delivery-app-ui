@@ -45,20 +45,22 @@ class _MyCardState extends State<MyCard> {
                   children: [
                     Stack(
                       children: [
-                        Positioned(
-                          // bottom: 0.2,
-                          child: SizedBox(
-                              height: 26,
-                              width: 26,
-                              child: Image.network(
-                                widget.vegOrNonveg,
-                              )),
-                        ),
+                        SizedBox(
+                            height: 26,
+                            width: 26,
+                            child: Image.network(
+                              widget.vegOrNonveg,
+                            )),
                       ],
                     ),
-                    Text(
-                      widget.quantity,
-                      style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                    SizedBox(
+                      height: 30,
+                      width: 30,
+                      child: Text(
+                        widget.quantity,
+                        style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                        textAlign: TextAlign.center,
+                      ),
                     )
                   ],
                 ),
@@ -126,9 +128,9 @@ class _MyCardState extends State<MyCard> {
 }
 
 /* 
-veg
+veg icon
 https://openclipart.org/image/800px/304248
 
-non veg
+non veg icon
 https://openclipart.org/image/800px/304247  
  */
